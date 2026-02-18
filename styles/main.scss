@@ -1,0 +1,645 @@
+@use "sass:color";
+
+// Variables - Color Palette & Typography
+
+$color-light:      #ececec;
+$color-mint:       #9fd3c7;
+$color-navy:       #385170;
+$color-deep-navy:  #142d4c;
+
+$font-heading: 'Playfair Display', serif;
+$font-body:    'Lato', sans-serif;
+
+$transition: all 0.3s ease;
+
+//  Reset Styles 
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-body;
+  background-color: $color-light;
+  color: $color-deep-navy;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+// Navbar
+.navbar {
+  background-color: $color-deep-navy;
+  padding: 1rem 0;
+
+  //  Brand 
+  .navbar-brand {
+    font-family: $font-heading;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: $color-mint !important;
+    letter-spacing: 1px;
+
+    span {
+      color: $color-light;
+    }
+  }
+
+  // Toggler 
+  .navbar-toggler {
+    border-color: $color-mint;
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%239fd3c7' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+  }
+
+  //  Nav links 
+  .nav-link {
+    color: $color-light !important;
+    font-weight: 600;
+    padding: 0.4rem 1rem !important;
+    border-radius: 4px;
+    transition: $transition;
+
+    &:hover,
+    &.active {
+      color: $color-deep-navy !important;
+      background-color: $color-mint;
+    }
+  }
+}
+
+// Hero Section
+.hero {
+  background: linear-gradient(135deg, $color-deep-navy 0%, $color-navy 60%, $color-mint 100%);
+  color: $color-light;
+  padding: 5rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+
+  // Decorative circle 
+  
+  &::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: rgba($color-mint, 0.08);
+    top: -80px;
+    right: -80px;
+    pointer-events: none;
+  }
+
+  h1 {
+    font-family: $font-heading;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+
+    span {
+      color: $color-mint;
+    }
+  }
+
+  p {
+    font-size: 1.15rem;
+    opacity: 0.9;
+    max-width: 520px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-img {
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+}
+
+// Hero buttons
+.btn-hero-primary {
+  background-color: $color-mint;
+  color: $color-deep-navy;
+  font-weight: 700;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  border: 2px solid $color-mint;
+  transition: $transition;
+  display: inline-block;
+
+  &:hover {
+    background-color: transparent;
+    color: $color-mint;
+  }
+}
+
+.btn-hero-outline {
+  border: 2px solid $color-light;
+  color: $color-light;
+  font-weight: 700;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  transition: $transition;
+  display: inline-block;
+
+  &:hover {
+    background-color: $color-light;
+    color: $color-deep-navy;
+  }
+}
+
+// Section Titles
+.section-title {
+  font-family: $font-heading;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: $color-deep-navy;
+  margin-bottom: 0.5rem;
+}
+
+.section-underline {
+  width: 60px;
+  height: 4px;
+  background: $color-mint;
+  border-radius: 2px;
+  margin: 0 auto 2.5rem;
+}
+
+// Features
+.features-strip {
+  background-color: $color-navy;
+  padding: 1.5rem 0;
+  color: $color-light;
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    justify-content: center;
+
+    i {
+      font-size: 1.5rem;
+      color: $color-mint;
+    }
+
+    span {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+  }
+}
+
+//  Products Section
+#products {
+  padding: 4rem 0;
+  background-color: $color-light;
+}
+
+// Product card
+.product-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba($color-deep-navy, 0.1);
+  transition: $transition;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba($color-deep-navy, 0.18);
+  }
+
+  .card-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .badge-new {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: $color-mint;
+      color: $color-deep-navy;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.7rem;
+      border-radius: 50px;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  &:hover .card-img-wrapper img {
+    transform: scale(1.05);
+  }
+
+  .card-body {
+    padding: 1.2rem 1.4rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-category {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $color-navy;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+
+  .card-title {
+    font-family: $font-heading;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: $color-deep-navy;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-description {
+    font-size: 0.9rem;
+    color: color.adjust($color-deep-navy, $lightness: 20%);
+    flex: 1;
+    margin-bottom: 1rem;
+  }
+
+  .card-footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+
+  .card-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $color-navy;
+  }
+
+  .btn-shop {
+    background-color: $color-deep-navy;
+    color: $color-light;
+    padding: 0.45rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 2px solid $color-deep-navy;
+    transition: $transition;
+    display: inline-block;
+
+    &:hover {
+      background-color: transparent;
+      color: $color-deep-navy;
+    }
+  }
+}
+
+// Promo Banner
+.promo-banner {
+  background: linear-gradient(to right, $color-navy, $color-deep-navy);
+  color: $color-light;
+  padding: 3rem 0;
+  text-align: center;
+
+  h2 {
+    font-family: $font-heading;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    opacity: 0.85;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+  }
+
+  .btn-promo {
+    background-color: $color-mint;
+    color: $color-deep-navy;
+    font-weight: 700;
+    padding: 0.7rem 2rem;
+    border-radius: 50px;
+    border: 2px solid $color-mint;
+    transition: $transition;
+    display: inline-block;
+
+    &:hover {
+      background-color: transparent;
+      color: $color-mint;
+    }
+  }
+}
+
+// Testimonials
+#testimonials {
+  padding: 4rem 0;
+  background-color: $color-light;
+}
+
+.testimonial-card {
+  background: #fff;
+  border-left: 4px solid $color-mint;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba($color-deep-navy, 0.08);
+  height: 100%;
+
+  .stars {
+    color: #f0a500;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+  }
+
+  p {
+    font-style: italic;
+    color: color.adjust($color-deep-navy, $lightness: 15%);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .reviewer {
+    font-weight: 700;
+    color: $color-navy;
+    font-size: 0.9rem;
+  }
+}
+
+// Newsletter
+#newsletter {
+  padding: 4rem 0;
+  background-color: $color-mint;
+
+  h2 {
+    font-family: $font-heading;
+    font-size: 2rem;
+    color: $color-deep-navy;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: $color-navy;
+    margin-bottom: 1.5rem;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 480px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+
+    input[type="email"] {
+      flex: 1;
+      padding: 0.7rem 1.2rem;
+      border-radius: 50px;
+      border: 2px solid $color-navy;
+      outline: none;
+      font-family: $font-body;
+      font-size: 0.95rem;
+      min-width: 200px;
+
+      &:focus {
+        border-color: $color-deep-navy;
+      }
+    }
+
+    button {
+      background-color: $color-deep-navy;
+      color: $color-light;
+      padding: 0.7rem 1.8rem;
+      border-radius: 50px;
+      border: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        background-color: $color-navy;
+      }
+    }
+  }
+}
+
+// Footer
+footer {
+  background-color: $color-deep-navy;
+  color: $color-light;
+  padding: 3rem 0 1.5rem;
+
+  .footer-brand {
+    font-family: $font-heading;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: $color-mint;
+    margin-bottom: 0.8rem;
+  }
+
+  .footer-desc {
+    font-size: 0.9rem;
+    opacity: 0.75;
+    max-width: 280px;
+    line-height: 1.7;
+  }
+
+  h5 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: $color-mint;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 0.5rem;
+
+      a {
+        color: rgba($color-light, 0.75);
+        font-size: 0.9rem;
+        transition: $transition;
+
+        &:hover {
+          color: $color-mint;
+          padding-left: 4px;
+        }
+      }
+    }
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+
+    a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1.5px solid rgba($color-mint, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $color-light;
+      font-size: 1rem;
+      transition: $transition;
+
+      &:hover {
+        background-color: $color-mint;
+        color: $color-deep-navy;
+        border-color: $color-mint;
+      }
+    }
+  }
+
+  .footer-divider {
+    border-color: rgba($color-light, 0.1);
+    margin: 2rem 0 1.2rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.85rem;
+    opacity: 0.6;
+    text-align: center;
+
+    a {
+      color: $color-mint;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Media Queries
+
+/* Medium screens (tablets, <992px) */
+@media (max-width: 991px) {
+
+  .hero {
+    padding: 3.5rem 0 3rem;
+    text-align: center;
+
+    h1 {
+      font-size: 2.4rem;
+    }
+
+    p {
+      margin: 0 auto 2rem;
+    }
+
+    .hero-img {
+      margin-top: 2.5rem;
+    }
+  }
+
+  .features-strip .feature-item {
+    margin-bottom: 0.8rem;
+  }
+
+  .section-title {
+    font-size: 1.9rem;
+  }
+}
+
+/* Small screens (phones, <768px) */
+@media (max-width: 767px) {
+
+  .hero {
+    padding: 2.5rem 0 2rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    .btn-hero-primary,
+    .btn-hero-outline {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .features-strip {
+    .feature-item {
+      justify-content: flex-start;
+      margin-bottom: 0.6rem;
+    }
+  }
+
+  .product-card {
+    .card-img-wrapper {
+      height: 200px;
+    }
+  }
+
+  #newsletter {
+    .newsletter-form {
+      flex-direction: column;
+
+      input[type="email"],
+      button {
+        width: 100%;
+      }
+    }
+  }
+
+  footer {
+    .footer-desc {
+      max-width: 100%;
+    }
+
+    .col-md-4,
+    .col-md-2 {
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+/* Extra small screens (<576px) */
+@media (max-width: 575px) {
+  .hero h1 {
+    font-size: 1.7rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .promo-banner h2 {
+    font-size: 1.5rem;
+  }
+}
